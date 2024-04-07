@@ -4,7 +4,7 @@ import chalk from 'chalk';
 
 dotenv.config();
 
-const Link: string = 'mongodb://localhost:27017/Auth';
+const Link: string = process.env.DATABASE ||'mongodb://localhost:27017/Contact';
 
 mongoose.connect(Link)
     .then(() => {
