@@ -86,6 +86,10 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 // Mount the router
 app.use('/contact', Route);
 
+app.use('/', (req: Request, res: Response) => {
+    res.send("Welcome To Server")
+})
+
 // Start the server
 app.listen(advancedConfig.port, () => {
     console.log(`Server is running on ${chalk.blueBright(`http://localhost:${advancedConfig.port}`)}`);
