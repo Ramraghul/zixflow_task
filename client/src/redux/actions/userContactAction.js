@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 export const createNewContact = (data, navigate) => {
     return async () => {
         try {
-            const response = await axios.post(`http://localhost:8080/contact/createContact`, data);
+            const response = await axios.post(`https://zixflow-task.vercel.app/contact/createContact`, data);
             console.log(response.data);
             if (response.data.status === true) {
                 Swal.fire({
@@ -38,7 +38,7 @@ export const createNewContact = (data, navigate) => {
 export const fetchContacts = () => {
     return async (dispatch) => {
         try {
-            const response = await axios.get(`http://localhost:8080/contact/getContactsList`);
+            const response = await axios.get(`https://zixflow-task.vercel.app/contact/getContactsList`);
             dispatch(getContact(response.data.data))
         } catch (error) {
             console.error(error.message);
@@ -50,7 +50,7 @@ export const fetchContacts = () => {
 export const updateContact = (data) => {
     return async () => {
         try {
-            await axios.put(`http://localhost:8080/contact/updateContactById/${data.id}`, data);
+            await axios.put(`https://zixflow-task.vercel.app/contact/updateContactById/${data.id}`, data);
         } catch (error) {
             console.error(error.message);
         }
@@ -61,7 +61,7 @@ export const updateContact = (data) => {
 export const deleteContact = (id) => {
     return async () => {
         try {
-            await axios.delete(`http://localhost:8080/contact/deleteContactById/${id}`);
+            await axios.delete(`https://zixflow-task.vercel.app/contact/deleteContactById/${id}`);
         } catch (error) {
             console.error(error.message);
         }
@@ -72,7 +72,7 @@ export const deleteContact = (id) => {
 export const SelectedDeleteContact = (idList) => {
     return async () => {
         try {
-            await axios.delete(`http://localhost:8080/contact/deleteContactList`, { data: { listId: idList } });
+            await axios.delete(`https://zixflow-task.vercel.app/contact/deleteContactList`, { data: { listId: idList } });
         } catch (error) {
             console.error(error.message);
         }
